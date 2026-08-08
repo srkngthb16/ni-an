@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Serkan &amp; Melek · Nişan</title>
+<meta name="theme-color" content="#f4ecdd">
+<meta property="og:title" content="Serkan & Melek Nişan Davetiyesi">
+<meta property="og:description" content="Nişan törenimize davetlisiniz.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   1a PALET — Krem · Altın · Warm  (Cormorant Garamond + Inter)
+   ============================================================ */
+:root{
+  --cream:      oklch(0.975 0.014 85);
+  --cream-2:    oklch(0.965 0.02 82);
+  --paper:      #ffffff;
+  --gold:       oklch(0.66 0.08 70);
+  --gold-deep:  oklch(0.55 0.07 65);
+  --gold-soft:  oklch(0.82 0.06 75);
+  --ink:        oklch(0.3 0.03 60);
+  --ink-2:      oklch(0.48 0.03 60);
+  --muted:      oklch(0.58 0.02 60);
+  --line:       oklch(0.9 0.02 82);
+  --serif: 'Cormorant Garamond', 'Georgia', serif;
+  --sans:  'Inter', system-ui, sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--cream);color:var(--ink-2);
+  font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,video{max-width:100%;display:block}
+.eyebrow{font-family:var(--mono);letter-spacing:.3em;text-transform:uppercase;font-size:11px}
+.wrap{max-width:520px;margin:0 auto}          /* mobil-önce; masaüstünde ortalı kolon */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease, transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* media fallback: dosya yoksa çizgili krem placeholder görünür */
+.ph{background:repeating-linear-gradient(45deg,oklch(0.93 0.02 80),oklch(0.93 0.02 80) 10px,oklch(0.9 0.02 80) 10px,oklch(0.9 0.02 80) 20px)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:40px 26px;overflow:hidden}
+.hero video, .hero .heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:var(--cream)}
+.hero .veil{position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(120% 80% at 50% 42%, transparent 40%, oklch(0.16 0.02 55/.35)),
+    linear-gradient(180deg,
+      oklch(0.20 0.03 55/.55),
+      oklch(0.18 0.03 55/.30) 40%,
+      oklch(0.15 0.025 55/.82))}
+.hero .inner{position:relative;z-index:2;text-shadow:0 1px 18px oklch(0.12 0.02 55/.6)}
+.hero .names{font-family:var(--serif);font-weight:500;font-size:clamp(56px,17vw,88px);
+  line-height:.92;color:oklch(0.98 0.012 82)}
+.hero .amp{font-family:var(--serif);font-style:italic;font-size:clamp(30px,9vw,44px);color:oklch(0.83 0.09 72);margin:2px 0}
+.hero .rule{width:56px;height:1px;background:oklch(0.8 0.08 72);margin:22px auto}
+.hero .when{font-family:var(--serif);font-style:italic;font-size:clamp(18px,5vw,22px);color:oklch(0.94 0.02 78)}
+.hero .where{font-size:13px;letter-spacing:.05em;color:oklch(0.86 0.02 74);margin-top:6px}
+.families{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:26px}
+.fam{max-width:160px}
+.fam .who{font-family:var(--serif);font-size:20px;color:oklch(0.87 0.08 72);line-height:1}
+.fam .par{font-size:12px;letter-spacing:.02em;color:oklch(0.84 0.02 74);margin-top:5px;line-height:1.5}
+.scrolldown{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:oklch(0.86 0.07 72);text-shadow:0 1px 10px oklch(0.12 0.02 55/.6);
+  display:flex;flex-direction:column;align-items:center;gap:6px}
+.scrolldown .arrow{animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ---------- COUNTDOWN ---------- */
+.countdown{margin:-42px 22px 0;position:relative;z-index:3;background:var(--paper);
+  border:1px solid var(--line);border-radius:16px;padding:22px 12px;
+  display:flex;justify-content:space-around;box-shadow:0 22px 44px oklch(0.6 0.02 60/.16)}
+.cd b{display:block;font-family:var(--serif);font-size:34px;font-weight:500;color:var(--gold-deep);line-height:1}
+.cd span{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;display:block}
+.cd{text-align:center;min-width:56px}
+
+/* ---------- STORY ---------- */
+.story{text-align:center;padding:56px 32px 46px}
+.story .quote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,6vw,26px);
+  line-height:1.5;color:var(--ink);margin:14px 0 0}
+
+/* ---------- DETAILS ---------- */
+.details{padding:8px 22px 40px;display:flex;flex-direction:column;gap:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.card h3{font-family:var(--serif);font-weight:500;font-size:24px;color:var(--gold-deep);margin:0 0 4px}
+.card p{font-size:13.5px;color:var(--ink-2);margin:0;line-height:1.6}
+.card a{color:var(--gold-deep);text-decoration:underline}
+
+/* ---------- RSVP FOOTER ---------- */
+.rsvp{background:var(--ink);text-align:center;padding:60px 30px 72px;color:oklch(0.92 0.01 80)}
+.rsvp .k{font-family:var(--serif);font-style:italic;font-size:clamp(26px,7vw,30px);color:oklch(0.96 0.01 80)}
+.rsvp .sub{font-size:13px;color:oklch(0.8 0.02 70);margin-top:10px}
+.btn{display:inline-block;margin-top:24px;font-size:14px;font-weight:500;letter-spacing:.02em;
+  color:var(--ink);background:var(--gold-soft);padding:15px 34px;border-radius:999px;text-decoration:none}
+.btn:active{transform:scale(.98)}
+.sig{margin-top:34px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:oklch(0.7 0.03 70)}
+
+/* auto-scroll ilerleme çubuğu */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:50}
+
+/* ---------- YÜKLEME / DAVETİYE ZARFI ---------- */
+body.locked{overflow:hidden}
+#intro{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:30px;
+  background:
+    radial-gradient(120% 90% at 50% 30%, oklch(0.985 0.014 85), oklch(0.95 0.02 82) 70%, oklch(0.92 0.025 80));
+  transition:opacity .9s ease, visibility .9s ease}
+#intro.gone{opacity:0;visibility:hidden;pointer-events:none}
+.intro-eyebrow{font-family:var(--mono);letter-spacing:.34em;text-transform:uppercase;
+  font-size:11px;color:var(--gold-deep);margin-bottom:26px}
+/* zarf sahnesi — 3D perspektif */
+.env{position:relative;width:min(360px,84vw);aspect-ratio:3/2;cursor:pointer;
+  perspective:1400px;transition:transform .5s ease}
+.env:active{transform:scale(.985)}
+.env>div{position:absolute;inset:0}
+/* arka gövde */
+.env-back{background:linear-gradient(160deg,oklch(0.95 0.02 84),oklch(0.9 0.025 82));
+  border:1px solid oklch(0.86 0.02 80);border-radius:12px;
+  box-shadow:0 30px 60px oklch(0.55 0.03 60/.22)}
+/* çıkan mektup */
+.letter{z-index:2;display:flex;align-items:center;justify-content:center;
+  transform:translateY(6%);transition:transform 1s cubic-bezier(.22,1,.36,1), z-index 0s .5s}
+.letter-in{width:82%;background:#fff;border:1px solid oklch(0.9 0.015 82);border-radius:8px;
+  padding:26px 20px;text-align:center;box-shadow:0 10px 26px oklch(0.55 0.03 60/.16)}
+.l-eyebrow{font-family:var(--mono);letter-spacing:.32em;text-transform:uppercase;font-size:9px;color:var(--gold-deep)}
+.l-title{font-family:var(--serif);font-weight:500;font-size:30px;color:var(--ink);margin-top:8px;line-height:1}
+.l-rule{width:40px;height:1px;background:var(--gold-soft);margin:12px auto}
+.l-sub{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-2)}
+/* ön cep — mektubu alttan gizler (V kesim) */
+.env-front{z-index:3;background:linear-gradient(160deg,oklch(0.965 0.02 84),oklch(0.92 0.025 82));
+  border-radius:12px;clip-path:polygon(0 42%,50% 100%,100% 42%,100% 100%,0 100%);
+  box-shadow:inset 0 6px 14px oklch(0.6 0.02 60/.08)}
+/* üst kapak — açılan */
+.flap{z-index:4;transform-origin:top center;transform:rotateX(0deg);
+  background:linear-gradient(160deg,oklch(0.96 0.02 84),oklch(0.9 0.03 82));
+  clip-path:polygon(0 0,100% 0,50% 62%);
+  border-radius:12px 12px 0 0;backface-visibility:hidden;
+  box-shadow:0 4px 8px oklch(0.6 0.02 60/.12);
+  transition:transform .9s cubic-bezier(.6,0,.2,1)}
+/* mühür */
+.seal{z-index:5;top:auto;left:50%;top:38%;transform:translate(-50%,-50%);
+  width:88px;height:88px;inset:auto;position:absolute;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:600;font-size:28px;letter-spacing:.02em;color:oklch(0.96 0.02 40);
+  background:radial-gradient(circle at 34% 30%, oklch(0.62 0.14 30), oklch(0.46 0.13 25) 55%, oklch(0.36 0.11 22));
+  box-shadow:0 8px 20px oklch(0.35 0.1 25/.5), inset 0 2px 5px oklch(0.85 0.06 40/.45), inset 0 -4px 8px oklch(0.25 0.08 20/.6);
+  border:2px solid oklch(0.5 0.12 26);
+  animation:sealPulse 2.4s ease-in-out infinite;
+  transition:opacity .4s ease, transform .4s ease}
+.seal span{font-style:italic;font-size:19px;margin:0 2px;opacity:.9}
+@keyframes sealPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.05)}}
+
+/* ---- AÇILIŞ ---- */
+.env.open{cursor:default}
+.env.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.6);animation:none}
+.env.open .flap{transform:rotateX(-178deg);z-index:1}
+.env.open .letter{transform:translateY(-64%) scale(1.02);z-index:6}
+
+.intro-hint{margin-top:34px;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-2);transition:opacity .5s ease}
+.intro-sub{margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);transition:opacity .5s ease}
+.env.open ~ .intro-hint,.env.open ~ .intro-sub{opacity:0}
+@media (prefers-reduced-motion: reduce){
+  .seal{animation:none}
+  .flap,.letter{transition:none}
+}
+</style>
+</head>
+<body class="locked">
+<div id="prog"></div>
+
+<!-- ============ YÜKLEME / DAVETİYE ZARFI ============ -->
+<div id="intro">
+  <div class="intro-eyebrow">Serkan &amp; Melek</div>
+  <div class="env" id="envelope" role="button" tabindex="0" aria-label="Davetiyeyi aç">
+    <div class="env-back"></div>
+    <div class="letter">
+      <div class="letter-in">
+        <div class="l-eyebrow">Nişan Davetiyesi</div>
+        <div class="l-title">Serkan &amp; Melek</div>
+        <div class="l-rule"></div>
+        <div class="l-sub">16 Ağustos 2026</div>
+      </div>
+    </div>
+    <div class="env-front"></div>
+    <div class="flap"></div>
+    <div class="seal">S<span>&amp;</span>M</div>
+  </div>
+  <div class="intro-hint">Nişan davetiyeniz hazır</div>
+  <div class="intro-sub">Açmak için dokunun</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <!-- Video: assets/hero.mp4 / hero.mov -->
+  <video id="herovid" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
+    <source src="assets/hero.mp4" type="video/mp4">
+    <source src="assets/hero.mov" type="video/quicktime">
+  </video>
+  <div class="veil"></div>
+
+  <div class="inner">
+    <div class="eyebrow" style="color:oklch(0.86 0.07 72);margin-bottom:18px">Nişanlanıyoruz</div>
+    <div class="names">Serkan</div>
+    <div class="amp">&amp;</div>
+    <div class="names">Melek</div>
+    <div class="rule"></div>
+    <div class="when" data-when>16 Ağustos 2026 · Cumartesi</div>
+    <div class="where" data-where>Bahçe Restoran · İstanbul · 19.00</div>
+
+    <div class="families">
+      <div class="fam">
+        <div class="who">Serkan</div>
+        <div class="par">Sami &amp; Demet Dalgıç<br>ailesinin oğlu</div>
+      </div>
+      <div class="fam">
+        <div class="who">Melek</div>
+        <div class="par">Musa &amp; Emine Aydın<br>ailesinin kızı</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrolldown"><span>KAYDIR</span><span class="arrow">↓</span></div>
+</header>
+
+<!-- ============ GERİ SAYIM ============ -->
+<div class="countdown reveal">
+  <div class="cd"><b id="cd-d">—</b><span>Gün</span></div>
+  <div class="cd"><b id="cd-h">—</b><span>Saat</span></div>
+  <div class="cd"><b id="cd-m">—</b><span>Dakika</span></div>
+  <div class="cd"><b id="cd-s">—</b><span>Saniye</span></div>
+</div>
+
+<!-- ============ HİKAYE ============ -->
+<section class="story wrap reveal">
+  <div class="eyebrow" style="color:var(--gold-deep)">Hikâyemiz</div>
+  <p class="quote">"Bir hikâyenin en güzel yerinde, sizi de yanımızda istiyoruz."</p>
+</section>
+
+<!-- ============ DETAYLAR ============ -->
+<section class="details wrap">
+  <div class="card reveal">
+    <h3>Tarih</h3>
+    <p data-date>16 Ağustos 2026 · Cumartesi</p>
+  </div>
+  <div class="card reveal">
+    <h3>Saat</h3>
+    <p data-time>19.00</p>
+  </div>
+  <div class="card reveal">
+    <h3>Mekân</h3>
+    <p data-venue>Bahçe Restoran · Sarıyer, İstanbul</p>
+    <p style="margin-top:8px"><a data-map href="https://maps.google.com/?q=İstanbul" target="_blank" rel="noopener">Haritada aç ↗</a></p>
+  </div>
+</section>
+
+<!-- ============ ROMANTİK ARA SÖZ ============ -->
+<section class="wrap reveal" style="text-align:center;padding:52px 34px 44px">
+  <div class="eyebrow" style="color:var(--gold-deep)">İkimiz</div>
+  <p style="font-family:var(--serif);font-style:italic;font-size:clamp(22px,6vw,26px);line-height:1.5;color:var(--ink);margin:14px 0 0">İki kalp, bir yol —<br>ve bu yolun sonu hep birlikte.</p>
+</section>
+
+<!-- ============ RSVP ============ -->
+<footer class="rsvp">
+  <div class="k">Katılımınızı bekliyoruz</div>
+  <div class="sub">Lütfen 1 Ağustos'a kadar bize bildirin.</div>
+  <a class="btn" id="rsvp" href="https://wa.me/900000000000?text=Nişanınıza%20katılıyorum" target="_blank" rel="noopener">Katılım Bildir</a>
+  <div class="sig">SERKAN &amp; MELEK · 2026</div>
+</footer>
+
+<script>
+/* ============================================================
+   AYAR — burayı düzenle (tarih/saat/mekan/telefon)
+   ============================================================ */
+const CONFIG = {
+  eventISO:  "2026-08-16T19:00:00+03:00",   // nişan tarih+saati (geri sayım bunu kullanır)
+  dateText:  "16 Ağustos 2026 · Cumartesi",
+  timeText:  "19.00",
+  venue:     "Bahçe Restoran · Sarıyer, İstanbul",
+  mapQuery:  "Bahçe Restoran Sarıyer İstanbul",
+  whatsapp:  "900000000000",                 // ülke kodu+numara, boşluksuz  (ör. 905551112233)
+  scrollSeconds: 33                          // sitenin baştan sona otomatik kayış süresi (30-35)
+};
+
+/* config -> sayfaya yaz */
+(function(){
+  document.querySelectorAll('[data-when]').forEach(e=>e.textContent=CONFIG.dateText);
+  document.querySelectorAll('[data-date]').forEach(e=>e.textContent=CONFIG.dateText);
+  document.querySelectorAll('[data-time]').forEach(e=>e.textContent=CONFIG.timeText);
+  document.querySelectorAll('[data-venue]').forEach(e=>e.textContent=CONFIG.venue);
+  const where=document.querySelector('[data-where]');
+  if(where) where.textContent = CONFIG.venue + " · " + CONFIG.timeText;
+  const map=document.querySelector('[data-map]');
+  if(map) map.href="https://maps.google.com/?q="+encodeURIComponent(CONFIG.mapQuery);
+  const rsvp=document.getElementById('rsvp');
+  if(rsvp) rsvp.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent("Nişanınıza katılıyorum 🎉");
+})();
+
+/* ---------- HERO VIDEO: oynatmayı zorla ---------- */
+(function(){
+  const v=document.getElementById('herovid');
+  if(!v)return;
+  v.muted=true;v.playsInline=true;
+  const go=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{});};
+  go();
+  v.addEventListener('loadeddata',go);
+  // bazı mobil tarayıcı ilk dokunuşta oynatır
+  ['touchstart','click'].forEach(e=>document.addEventListener(e,go,{once:true,passive:true}));
+})();
+
+/* ---------- GERİ SAYIM ---------- */
+(function(){
+  const target=new Date(CONFIG.eventISO).getTime();
+  const d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),
+        m=document.getElementById('cd-m'),s=document.getElementById('cd-s');
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    let diff=target-Date.now();
+    if(diff<0)diff=0;
+    const day=Math.floor(diff/864e5);
+    d.textContent=day;
+    h.textContent=pad(Math.floor(diff%864e5/36e5));
+    m.textContent=pad(Math.floor(diff%36e5/6e4));
+    s.textContent=pad(Math.floor(diff%6e4/1e3));
+  }
+  tick();setInterval(tick,1000);
+})();
+
+/* ---------- SCROLL REVEAL ---------- */
+(function(){
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+/* ---------- OTOMATİK KAYIŞ (30-35 sn, baştan sona) ---------- */
+window.__startAutoScroll=function(){
+  if(window.__autoStarted)return; window.__autoStarted=true;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const dur=CONFIG.scrollSeconds*1000;
+  const prog=document.getElementById('prog');
+  let start=null,cancelled=false;
+  const maxY=()=>document.documentElement.scrollHeight-window.innerHeight;
+  function stop(){cancelled=true;['wheel','touchstart','keydown','mousedown']
+    .forEach(ev=>window.removeEventListener(ev,stop));}
+  ['wheel','touchstart','keydown','mousedown'].forEach(ev=>window.addEventListener(ev,stop,{passive:true}));
+  function step(t){
+    if(cancelled)return;
+    if(start===null)start=t;
+    const p=Math.min((t-start)/dur,1);
+    window.scrollTo(0,maxY()*p);
+    prog.style.width=(p*100)+'%';
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+};
+
+/* ---------- DAVETİYE ZARFI: tıkla, siteyi aç ---------- */
+(function(){
+  const intro=document.getElementById('intro');
+  const env=document.getElementById('envelope');
+  const v=document.getElementById('herovid');
+  if(!intro||!env)return;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function openSite(){
+    if(env.classList.contains('open'))return;
+    env.classList.add('open');               // mektup açılış animasyonu
+    if(v){try{v.play();}catch(e){}}
+    const wait=reduce?200:1700;              // animasyon bitsin
+    setTimeout(()=>{
+      intro.classList.add('gone');
+      document.body.classList.remove('locked');
+      window.scrollTo(0,0);
+      setTimeout(()=>window.__startAutoScroll(),1100);
+    },wait);
+  }
+  env.addEventListener('click',openSite);
+  env.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openSite();}});
+})();
+</script>
+</body>
+</html>
