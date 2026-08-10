@@ -38,7 +38,7 @@ body{
   overflow-x:hidden;
 }
 img,video{max-width:100%;display:block}
-.eyebrow{font-family:var(--mono);letter-spacing:.3em;text-transform:uppercase;font-size:11px}
+.eyebrow{font-family:var(--mono);letter-spacing:.3em;text-transform:uppercase;font-size:13px}
 .wrap{max-width:520px;margin:0 auto}          /* mobil-önce; masaüstünde ortalı kolon */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease, transform .9s ease}
 .reveal.in{opacity:1;transform:none}
@@ -59,20 +59,20 @@ img,video{max-width:100%;display:block}
       oklch(0.18 0.03 55/.30) 40%,
       oklch(0.15 0.025 55/.82))}
 .hero .inner{position:relative;z-index:2;text-shadow:0 1px 18px oklch(0.12 0.02 55/.6)}
-.hero .names{font-family:var(--serif);font-weight:500;font-size:clamp(56px,17vw,88px);
+.hero .names{font-family:var(--serif);font-weight:500;font-size:clamp(58px,17.6vw,90px);
   line-height:.92;color:oklch(0.98 0.012 82)}
-.hero .amp{font-family:var(--serif);font-style:italic;font-size:clamp(30px,9vw,44px);color:oklch(0.83 0.09 72);margin:2px 0}
+.hero .amp{font-family:var(--serif);font-style:italic;font-size:clamp(32px,9.6vw,46px);color:oklch(0.83 0.09 72);margin:2px 0}
 .hero .rule{width:56px;height:1px;background:oklch(0.8 0.08 72);margin:22px auto}
-.hero .when{font-family:var(--serif);font-style:italic;font-size:clamp(18px,5vw,22px);color:oklch(0.94 0.02 78)}
-.hero .where{font-size:13px;letter-spacing:.05em;color:oklch(0.86 0.02 74);margin-top:6px}
-.hero-note{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.5;
+.hero .when{font-family:var(--serif);font-style:italic;font-size:clamp(20px,5.6vw,24px);color:oklch(0.94 0.02 78)}
+.hero .where{font-size:15px;letter-spacing:.05em;color:oklch(0.86 0.02 74);margin-top:6px}
+.hero-note{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5;
   color:oklch(0.88 0.045 74);margin:16px auto 0;max-width:270px}
 .families{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:26px}
 .fam{max-width:160px}
-.fam .who{font-family:var(--serif);font-size:20px;color:oklch(0.87 0.08 72);line-height:1}
-.fam .par{font-size:12px;letter-spacing:.02em;color:oklch(0.84 0.02 74);margin-top:5px;line-height:1.5}
+.fam .who{font-family:var(--serif);font-size:22px;color:oklch(0.87 0.08 72);line-height:1}
+.fam .par{font-size:14px;letter-spacing:.02em;color:oklch(0.84 0.02 74);margin-top:5px;line-height:1.5}
 .scrolldown{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:2;
-  font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:oklch(0.86 0.07 72);text-shadow:0 1px 10px oklch(0.12 0.02 55/.6);
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:oklch(0.86 0.07 72);text-shadow:0 1px 10px oklch(0.12 0.02 55/.6);
   display:flex;flex-direction:column;align-items:center;gap:6px}
 .scrolldown .arrow{animation:bob 1.8s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
@@ -81,30 +81,30 @@ img,video{max-width:100%;display:block}
 .countdown{margin:-42px 22px 0;position:relative;z-index:3;background:var(--paper);
   border:1px solid var(--line);border-radius:16px;padding:22px 12px;
   display:flex;justify-content:space-around;box-shadow:0 22px 44px oklch(0.6 0.02 60/.16)}
-.cd b{display:block;font-family:var(--serif);font-size:34px;font-weight:500;color:var(--gold-deep);line-height:1}
-.cd span{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;display:block}
+.cd b{display:block;font-family:var(--serif);font-size:36px;font-weight:500;color:var(--gold-deep);line-height:1}
+.cd span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;display:block}
 .cd{text-align:center;min-width:56px}
 
 /* ---------- STORY ---------- */
 .story{text-align:center;padding:56px 32px 46px}
-.story .quote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,6vw,26px);
+.story .quote{font-family:var(--serif);font-style:italic;font-size:clamp(24px,6.5vw,28px);
   line-height:1.5;color:var(--ink);margin:14px 0 0}
 
 /* ---------- DETAILS ---------- */
 .details{padding:8px 22px 40px;display:flex;flex-direction:column;gap:12px}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
-.card h3{font-family:var(--serif);font-weight:500;font-size:24px;color:var(--gold-deep);margin:0 0 4px}
-.card p{font-size:13.5px;color:var(--ink-2);margin:0;line-height:1.6}
+.card h3{font-family:var(--serif);font-weight:500;font-size:26px;color:var(--gold-deep);margin:0 0 4px}
+.card p{font-size:15.5px;color:var(--ink-2);margin:0;line-height:1.6}
 .card a{color:var(--gold-deep);text-decoration:underline}
 
 /* ---------- RSVP FOOTER ---------- */
 .rsvp{background:var(--ink);text-align:center;padding:60px 30px 72px;color:oklch(0.92 0.01 80)}
-.rsvp .k{font-family:var(--serif);font-style:italic;font-size:clamp(26px,7vw,30px);color:oklch(0.96 0.01 80)}
-.rsvp .sub{font-size:13px;color:oklch(0.8 0.02 70);margin-top:10px}
-.btn{display:inline-block;margin-top:24px;font-size:14px;font-weight:500;letter-spacing:.02em;
+.rsvp .k{font-family:var(--serif);font-style:italic;font-size:clamp(28px,7.5vw,32px);color:oklch(0.96 0.01 80)}
+.rsvp .sub{font-size:15px;color:oklch(0.8 0.02 70);margin-top:10px}
+.btn{display:inline-block;margin-top:24px;font-size:16px;font-weight:500;letter-spacing:.02em;
   color:var(--ink);background:var(--gold-soft);padding:15px 34px;border-radius:999px;text-decoration:none}
 .btn:active{transform:scale(.98)}
-.sig{margin-top:34px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:oklch(0.7 0.03 70)}
+.sig{margin-top:34px;font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:oklch(0.7 0.03 70)}
 
 /* auto-scroll ilerleme çubuğu */
 #prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:50}
@@ -136,8 +136,8 @@ body.locked{overflow:hidden}
 @keyframes fadeIn{to{opacity:1}}
 
 .intro-eyebrow{font-family:var(--mono);letter-spacing:.34em;text-transform:uppercase;
-  font-size:10px;color:var(--gold-deep)}
-.intro-names{font-family:var(--serif);font-weight:500;font-size:clamp(44px,13vw,60px);
+  font-size:12px;color:var(--gold-deep)}
+.intro-names{font-family:var(--serif);font-weight:500;font-size:clamp(46px,13.6vw,62px);
   line-height:.98;color:var(--ink);margin-top:18px}
 .intro-amp{font-family:var(--serif);font-style:italic;font-size:.62em;color:var(--gold);
   display:block;margin:2px 0}
@@ -145,8 +145,8 @@ body.locked{overflow:hidden}
 .intro-rule{height:1px;background:var(--gold-soft);margin:22px auto 0;width:0;
   animation:grow 1s cubic-bezier(.22,1,.36,1) .82s forwards}
 @keyframes grow{to{width:74px}}
-.intro-date{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink-2);margin-top:20px}
-.intro-venue{font-size:12.5px;letter-spacing:.03em;color:var(--muted);margin-top:6px;line-height:1.6}
+.intro-date{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--ink-2);margin-top:20px}
+.intro-venue{font-size:14.5px;letter-spacing:.03em;color:var(--muted);margin-top:6px;line-height:1.6}
 
 /* mühürlü açma düğmesi */
 .seal-btn{position:relative;margin:38px auto 0;background:none;border:0;padding:0;cursor:pointer;
@@ -154,12 +154,12 @@ body.locked{overflow:hidden}
   font:inherit;-webkit-tap-highlight-color:transparent}
 .seal{width:78px;height:78px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-weight:600;font-size:25px;color:oklch(0.96 0.02 40);
+  font-family:var(--serif);font-weight:600;font-size:27px;color:oklch(0.96 0.02 40);
   background:radial-gradient(circle at 34% 30%, oklch(0.62 0.14 30), oklch(0.46 0.13 25) 55%, oklch(0.36 0.11 22));
   box-shadow:0 8px 20px oklch(0.35 0.1 25/.45), inset 0 2px 5px oklch(0.85 0.06 40/.4), inset 0 -4px 8px oklch(0.25 0.08 20/.55);
   border:2px solid oklch(0.5 0.12 26);
   transition:transform .45s cubic-bezier(.22,1,.36,1), opacity .45s ease}
-.seal span{font-style:italic;font-size:17px;margin:0 2px;opacity:.9}
+.seal span{font-style:italic;font-size:19px;margin:0 2px;opacity:.9}
 /* nabız halkası */
 .seal-btn::before{content:"";position:absolute;top:0;left:50%;width:78px;height:78px;border-radius:50%;
   border:1px solid oklch(0.6 0.1 28/.5);animation:ring 2.6s ease-out infinite;pointer-events:none}
@@ -168,7 +168,7 @@ body.locked{overflow:hidden}
   70%{transform:translateX(-50%) scale(1.5);opacity:0}
   100%{transform:translateX(-50%) scale(1.5);opacity:0}}
 .seal-btn:active .seal{transform:scale(.94)}
-.seal-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;
+.seal-label{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--muted);transition:opacity .4s ease}
 
 /* ---- AÇILIŞ: sırayla sön, sonra perde kalkar ---- */
@@ -260,7 +260,7 @@ body.locked{overflow:hidden}
   </div>
   <div class="card reveal">
     <h3>Saat</h3>
-    <p data-time>19.00</p>
+    <p data-time>19.00 - yemek servisimiz başlayacaktır</p>
   </div>
   <div class="card reveal">
     <h3>Mekân</h3>
@@ -272,7 +272,7 @@ body.locked{overflow:hidden}
 <!-- ============ ROMANTİK ARA SÖZ ============ -->
 <section class="wrap reveal" style="text-align:center;padding:52px 34px 44px">
   <div class="eyebrow" style="color:var(--gold-deep)">İkimiz</div>
-  <p style="font-family:var(--serif);font-style:italic;font-size:clamp(22px,6vw,26px);line-height:1.5;color:var(--ink);margin:14px 0 0">İki kalp, bir yol —<br>ve bu yolun sonu hep birlikte.</p>
+  <p style="font-family:var(--serif);font-style:italic;font-size:clamp(24px,6.5vw,28px);line-height:1.5;color:var(--ink);margin:14px 0 0">İki kalp, bir yol —<br>ve bu yolun sonu hep birlikte.</p>
 </section>
 
 <!-- ============ RSVP ============ -->
@@ -291,12 +291,13 @@ const CONFIG = {
   eventISO:  "2026-09-27T19:00:00+03:00",   // nişan tarih+saati (geri sayım bunu kullanır)
   dateText:  "27 Eylül 2026 · Pazar",
   timeText:  "19.00",
+  timeDetail:"19.00 - yemek servisimiz başlayacaktır",  // Detaylar bölümündeki Saat kartı
   venue:     "Lidya Park Davet Evi · Aspendos Salonu, Kat 2",
   venueName: "Lidya Park Davet Evi",
   venueHall: "Aspendos Salonu · Kat 2",
   mapUrl:    "https://maps.app.goo.gl/vbR2hk33aiGUBj7q9",  // harita linki (boş bırakılırsa mapQuery kullanılır)
   mapQuery:  "Lidya Park Davet Evi",
-  whatsapp:  "900000000000",                 // ülke kodu+numara, boşluksuz  (ör. 905551112233)
+  whatsapp:  "905382398580",                 // ülke kodu+numara, boşluksuz  (+90 538 239 8580)
   scrollSeconds: 33                          // sitenin baştan sona otomatik kayış süresi (30-35)
 };
 
@@ -304,7 +305,7 @@ const CONFIG = {
 (function(){
   document.querySelectorAll('[data-when]').forEach(e=>e.textContent=CONFIG.dateText);
   document.querySelectorAll('[data-date]').forEach(e=>e.textContent=CONFIG.dateText);
-  document.querySelectorAll('[data-time]').forEach(e=>e.textContent=CONFIG.timeText);
+  document.querySelectorAll('[data-time]').forEach(e=>e.textContent=CONFIG.timeDetail||CONFIG.timeText);
   document.querySelectorAll('[data-venue]').forEach(e=>e.textContent=CONFIG.venue);
   document.querySelectorAll('[data-venue-lines]').forEach(e=>{
     e.innerHTML = CONFIG.venueName + "<br>" + CONFIG.venueHall + " · " + CONFIG.timeText;
