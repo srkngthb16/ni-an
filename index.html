@@ -96,6 +96,7 @@ img,video{max-width:100%;display:block}
 .card h3{font-family:var(--serif);font-weight:500;font-size:26px;color:var(--gold-deep);margin:0 0 4px}
 .card p{font-size:15.5px;color:var(--ink-2);margin:0;line-height:1.6}
 .card a{color:var(--gold-deep);text-decoration:underline}
+.card .addr{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.6}
 
 /* ---------- RSVP FOOTER ---------- */
 .rsvp{background:var(--ink);text-align:center;padding:60px 30px 72px;color:oklch(0.92 0.01 80)}
@@ -265,7 +266,8 @@ body.locked{overflow:hidden}
   <div class="card reveal">
     <h3>Mekân</h3>
     <p data-venue>Lidya Park Davet Evi · Aspendos Salonu, Kat 2</p>
-    <p style="margin-top:8px"><a data-map href="https://maps.app.goo.gl/vbR2hk33aiGUBj7q9" target="_blank" rel="noopener">Haritada aç ↗</a></p>
+    <p class="addr" data-address>Büyükdere, Karadağ Sk. No:37 Z02, 26950 Odunpazarı/Eskişehir</p>
+    <p style="margin-top:10px"><a data-map href="https://maps.app.goo.gl/vbR2hk33aiGUBj7q9" target="_blank" rel="noopener">Haritada aç ↗</a></p>
   </div>
 </section>
 
@@ -295,6 +297,7 @@ const CONFIG = {
   venue:     "Lidya Park Davet Evi · Aspendos Salonu, Kat 2",
   venueName: "Lidya Park Davet Evi",
   venueHall: "Aspendos Salonu · Kat 2",
+  address:   "Büyükdere, Karadağ Sk. No:37 Z02, 26950 Odunpazarı/Eskişehir",
   mapUrl:    "https://maps.app.goo.gl/vbR2hk33aiGUBj7q9",  // harita linki (boş bırakılırsa mapQuery kullanılır)
   mapQuery:  "Lidya Park Davet Evi",
   whatsapp:  "905382398580",                 // ülke kodu+numara, boşluksuz  (+90 538 239 8580)
@@ -307,6 +310,7 @@ const CONFIG = {
   document.querySelectorAll('[data-date]').forEach(e=>e.textContent=CONFIG.dateText);
   document.querySelectorAll('[data-time]').forEach(e=>e.textContent=CONFIG.timeDetail||CONFIG.timeText);
   document.querySelectorAll('[data-venue]').forEach(e=>e.textContent=CONFIG.venue);
+  document.querySelectorAll('[data-address]').forEach(e=>e.textContent=CONFIG.address);
   document.querySelectorAll('[data-venue-lines]').forEach(e=>{
     e.innerHTML = CONFIG.venueName + "<br>" + CONFIG.venueHall + " · " + CONFIG.timeText;
   });
