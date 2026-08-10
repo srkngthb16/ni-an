@@ -107,96 +107,96 @@ img,video{max-width:100%;display:block}
 /* auto-scroll ilerleme çubuğu */
 #prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:50}
 
-/* ---------- YÜKLEME / DAVETİYE ZARFI ---------- */
+/* ---------- YÜKLEME / DAVETİYE KARTI ---------- */
 body.locked{overflow:hidden}
 #intro{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;
   align-items:center;justify-content:center;padding:30px;
   background:
-    radial-gradient(120% 90% at 50% 30%, oklch(0.985 0.014 85), oklch(0.95 0.02 82) 70%, oklch(0.92 0.025 80));
-  transition:opacity .9s ease, visibility .9s ease}
+    radial-gradient(120% 90% at 50% 28%, oklch(0.985 0.014 85), oklch(0.955 0.02 82) 65%, oklch(0.925 0.025 80));
+  transition:opacity .8s ease, visibility .8s ease}
 #intro.gone{opacity:0;visibility:hidden;pointer-events:none}
+
+/* ince altın çerçeve */
+.intro-frame{position:absolute;inset:16px;border:1px solid oklch(0.86 0.045 78);
+  border-radius:4px;pointer-events:none;opacity:0;
+  animation:fadeIn 1s ease .15s forwards}
+.intro-frame::before,.intro-frame::after{content:"";position:absolute;width:9px;height:9px;
+  border:1px solid oklch(0.72 0.07 74)}
+.intro-frame::before{top:-5px;left:-5px;border-right:0;border-bottom:0}
+.intro-frame::after{bottom:-5px;right:-5px;border-left:0;border-top:0}
+
+/* kart — sırayla beliren içerik */
+.card-open{position:relative;text-align:center;max-width:340px}
+.io{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.22,1,.36,1) forwards}
+.io-1{animation-delay:.25s}.io-2{animation-delay:.5s}.io-3{animation-delay:.72s}
+.io-4{animation-delay:1.05s}.io-5{animation-delay:1.35s}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fadeIn{to{opacity:1}}
+
 .intro-eyebrow{font-family:var(--mono);letter-spacing:.34em;text-transform:uppercase;
-  font-size:11px;color:var(--gold-deep);margin-bottom:26px}
-/* zarf sahnesi — 3D perspektif */
-.env{position:relative;width:min(360px,84vw);aspect-ratio:3/2;cursor:pointer;
-  perspective:1400px;transition:transform .5s ease}
-.env:active{transform:scale(.985)}
-.env>div{position:absolute;inset:0}
-/* arka gövde */
-.env-back{background:linear-gradient(160deg,oklch(0.95 0.02 84),oklch(0.9 0.025 82));
-  border:1px solid oklch(0.86 0.02 80);border-radius:12px;
-  box-shadow:0 30px 60px oklch(0.55 0.03 60/.22)}
-/* çıkan mektup */
-.letter{z-index:2;display:flex;align-items:center;justify-content:center;
-  transform:translateY(6%);transition:transform 1s cubic-bezier(.22,1,.36,1), z-index 0s .5s}
-.letter-in{width:82%;background:#fff;border:1px solid oklch(0.9 0.015 82);border-radius:8px;
-  padding:26px 20px;text-align:center;box-shadow:0 10px 26px oklch(0.55 0.03 60/.16)}
-.l-eyebrow{font-family:var(--mono);letter-spacing:.32em;text-transform:uppercase;font-size:9px;color:var(--gold-deep)}
-.l-title{font-family:var(--serif);font-weight:500;font-size:30px;color:var(--ink);margin-top:8px;line-height:1}
-.l-rule{width:40px;height:1px;background:var(--gold-soft);margin:12px auto}
-.l-sub{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink-2)}
-/* ön cep — mektubu alttan gizler (V kesim) */
-.env-front{z-index:3;background:linear-gradient(160deg,oklch(0.965 0.02 84),oklch(0.92 0.025 82));
-  border-radius:12px;clip-path:polygon(0 42%,50% 100%,100% 42%,100% 100%,0 100%);
-  box-shadow:inset 0 6px 14px oklch(0.6 0.02 60/.08)}
-/* üst kapak — açılan */
-.flap{z-index:4;transform-origin:top center;transform:rotateX(0deg);
-  background:linear-gradient(160deg,oklch(0.96 0.02 84),oklch(0.9 0.03 82));
-  clip-path:polygon(0 0,100% 0,50% 62%);
-  border-radius:12px 12px 0 0;backface-visibility:hidden;
-  box-shadow:0 4px 8px oklch(0.6 0.02 60/.12);
-  transition:transform .9s cubic-bezier(.6,0,.2,1)}
-/* mühür */
-.seal{z-index:5;top:auto;left:50%;top:38%;transform:translate(-50%,-50%);
-  width:88px;height:88px;inset:auto;position:absolute;border-radius:50%;
+  font-size:10px;color:var(--gold-deep)}
+.intro-names{font-family:var(--serif);font-weight:500;font-size:clamp(44px,13vw,60px);
+  line-height:.98;color:var(--ink);margin-top:18px}
+.intro-amp{font-family:var(--serif);font-style:italic;font-size:.62em;color:var(--gold);
+  display:block;margin:2px 0}
+/* çizilerek uzayan altın hat */
+.intro-rule{height:1px;background:var(--gold-soft);margin:22px auto 0;width:0;
+  animation:grow 1s cubic-bezier(.22,1,.36,1) .82s forwards}
+@keyframes grow{to{width:74px}}
+.intro-date{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink-2);margin-top:20px}
+.intro-venue{font-size:12.5px;letter-spacing:.03em;color:var(--muted);margin-top:6px;line-height:1.6}
+
+/* mühürlü açma düğmesi */
+.seal-btn{position:relative;margin-top:38px;background:none;border:0;padding:0;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  font:inherit;-webkit-tap-highlight-color:transparent}
+.seal{width:78px;height:78px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-weight:600;font-size:28px;letter-spacing:.02em;color:oklch(0.96 0.02 40);
+  font-family:var(--serif);font-weight:600;font-size:25px;color:oklch(0.96 0.02 40);
   background:radial-gradient(circle at 34% 30%, oklch(0.62 0.14 30), oklch(0.46 0.13 25) 55%, oklch(0.36 0.11 22));
-  box-shadow:0 8px 20px oklch(0.35 0.1 25/.5), inset 0 2px 5px oklch(0.85 0.06 40/.45), inset 0 -4px 8px oklch(0.25 0.08 20/.6);
+  box-shadow:0 8px 20px oklch(0.35 0.1 25/.45), inset 0 2px 5px oklch(0.85 0.06 40/.4), inset 0 -4px 8px oklch(0.25 0.08 20/.55);
   border:2px solid oklch(0.5 0.12 26);
-  animation:sealPulse 2.4s ease-in-out infinite;
-  transition:opacity .4s ease, transform .4s ease}
-.seal span{font-style:italic;font-size:19px;margin:0 2px;opacity:.9}
-@keyframes sealPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.05)}}
+  transition:transform .45s cubic-bezier(.22,1,.36,1), opacity .45s ease}
+.seal span{font-style:italic;font-size:17px;margin:0 2px;opacity:.9}
+/* nabız halkası */
+.seal-btn::before{content:"";position:absolute;top:0;width:78px;height:78px;border-radius:50%;
+  border:1px solid oklch(0.6 0.1 28/.5);animation:ring 2.6s ease-out infinite;pointer-events:none}
+@keyframes ring{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.5);opacity:0}100%{opacity:0}}
+.seal-btn:active .seal{transform:scale(.94)}
+.seal-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted);transition:opacity .4s ease}
 
-/* ---- AÇILIŞ ---- */
-.env.open{cursor:default}
-.env.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.6);animation:none}
-.env.open .flap{transform:rotateX(-178deg);z-index:1}
-.env.open .letter{transform:translateY(-64%) scale(1.02);z-index:6}
+/* ---- AÇILIŞ: sırayla sön, sonra perde kalkar ---- */
+#intro.opening .seal{transform:scale(1.35);opacity:0}
+#intro.opening .seal-btn::before{animation:none;opacity:0}
+#intro.opening .seal-label{opacity:0}
+#intro.opening .card-open{opacity:0;transform:translateY(-16px) scale(.97);
+  transition:opacity .7s ease .25s, transform .7s cubic-bezier(.4,0,.2,1) .25s}
+#intro.opening .intro-frame{opacity:0;transition:opacity .6s ease .3s;animation:none}
 
-.intro-hint{margin-top:34px;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-2);transition:opacity .5s ease}
-.intro-sub{margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--muted);transition:opacity .5s ease}
-.env.open ~ .intro-hint,.env.open ~ .intro-sub{opacity:0}
 @media (prefers-reduced-motion: reduce){
-  .seal{animation:none}
-  .flap,.letter{transition:none}
+  .io,.intro-rule,.intro-frame{animation:none;opacity:1;transform:none;width:74px}
+  .seal-btn::before{animation:none;opacity:0}
 }
 </style>
 </head>
 <body class="locked">
 <div id="prog"></div>
 
-<!-- ============ YÜKLEME / DAVETİYE ZARFI ============ -->
+<!-- ============ YÜKLEME / DAVETİYE KARTI ============ -->
 <div id="intro">
-  <div class="intro-eyebrow">Serkan &amp; Melek</div>
-  <div class="env" id="envelope" role="button" tabindex="0" aria-label="Davetiyeyi aç">
-    <div class="env-back"></div>
-    <div class="letter">
-      <div class="letter-in">
-        <div class="l-eyebrow">Nişan Davetiyesi</div>
-        <div class="l-title">Serkan &amp; Melek</div>
-        <div class="l-rule"></div>
-        <div class="l-sub">16 Ağustos 2026</div>
-      </div>
-    </div>
-    <div class="env-front"></div>
-    <div class="flap"></div>
-    <div class="seal">S<span>&amp;</span>M</div>
+  <div class="intro-frame"></div>
+  <div class="card-open">
+    <div class="intro-eyebrow io io-1">Nişan Davetiyesi</div>
+    <div class="intro-names io io-2">Serkan<span class="intro-amp">&amp;</span>Melek</div>
+    <div class="intro-rule"></div>
+    <div class="intro-date io io-3" data-date>—</div>
+    <div class="intro-venue io io-4" data-venue-lines>—</div>
+    <button class="seal-btn io io-5" id="openBtn" aria-label="Davetiyeyi aç">
+      <span class="seal">S<span>&amp;</span>M</span>
+      <span class="seal-label">Açmak için dokunun</span>
+    </button>
   </div>
-  <div class="intro-hint">Nişan davetiyeniz hazır</div>
-  <div class="intro-sub">Açmak için dokunun</div>
 </div>
 
 <!-- ============ HERO ============ -->
@@ -214,8 +214,8 @@ body.locked{overflow:hidden}
     <div class="amp">&amp;</div>
     <div class="names">Melek</div>
     <div class="rule"></div>
-    <div class="when" data-when>16 Ağustos 2026 · Cumartesi</div>
-    <div class="where" data-where>Bahçe Restoran · İstanbul · 19.00</div>
+    <div class="when" data-when>27 Eylül 2026 · Pazar</div>
+    <div class="where" data-where>Lidya Park Davet Evi · Aspendos Salonu, Kat 2<br>19.00</div>
 
     <div class="families">
       <div class="fam">
@@ -224,7 +224,7 @@ body.locked{overflow:hidden}
       </div>
       <div class="fam">
         <div class="who">Melek</div>
-        <div class="par">Musa &amp; Emine Aydın<br>ailesinin kızı</div>
+        <div class="par">Musa &amp; Emine Aydı<br>ailesinin kızı</div>
       </div>
     </div>
   </div>
@@ -250,7 +250,7 @@ body.locked{overflow:hidden}
 <section class="details wrap">
   <div class="card reveal">
     <h3>Tarih</h3>
-    <p data-date>16 Ağustos 2026 · Cumartesi</p>
+    <p data-date>27 Eylül 2026 · Pazar</p>
   </div>
   <div class="card reveal">
     <h3>Saat</h3>
@@ -258,7 +258,7 @@ body.locked{overflow:hidden}
   </div>
   <div class="card reveal">
     <h3>Mekân</h3>
-    <p data-venue>Bahçe Restoran · Sarıyer, İstanbul</p>
+    <p data-venue>Lidya Park Davet Evi · Aspendos Salonu, Kat 2</p>
     <p style="margin-top:8px"><a data-map href="https://maps.google.com/?q=İstanbul" target="_blank" rel="noopener">Haritada aç ↗</a></p>
   </div>
 </section>
@@ -272,7 +272,7 @@ body.locked{overflow:hidden}
 <!-- ============ RSVP ============ -->
 <footer class="rsvp">
   <div class="k">Katılımınızı bekliyoruz</div>
-  <div class="sub">Lütfen 1 Ağustos'a kadar bize bildirin.</div>
+  <div class="sub">Lütfen 13 Eylül'e kadar bize bildirin.</div>
   <a class="btn" id="rsvp" href="https://wa.me/900000000000?text=Nişanınıza%20katılıyorum" target="_blank" rel="noopener">Katılım Bildir</a>
   <div class="sig">SERKAN &amp; MELEK · 2026</div>
 </footer>
@@ -282,11 +282,13 @@ body.locked{overflow:hidden}
    AYAR — burayı düzenle (tarih/saat/mekan/telefon)
    ============================================================ */
 const CONFIG = {
-  eventISO:  "2026-08-16T19:00:00+03:00",   // nişan tarih+saati (geri sayım bunu kullanır)
-  dateText:  "16 Ağustos 2026 · Cumartesi",
+  eventISO:  "2026-09-27T19:00:00+03:00",   // nişan tarih+saati (geri sayım bunu kullanır)
+  dateText:  "27 Eylül 2026 · Pazar",
   timeText:  "19.00",
-  venue:     "Bahçe Restoran · Sarıyer, İstanbul",
-  mapQuery:  "Bahçe Restoran Sarıyer İstanbul",
+  venue:     "Lidya Park Davet Evi · Aspendos Salonu, Kat 2",
+  venueName: "Lidya Park Davet Evi",
+  venueHall: "Aspendos Salonu · Kat 2",
+  mapQuery:  "Lidya Park Davet Evi",
   whatsapp:  "900000000000",                 // ülke kodu+numara, boşluksuz  (ör. 905551112233)
   scrollSeconds: 33                          // sitenin baştan sona otomatik kayış süresi (30-35)
 };
@@ -297,8 +299,11 @@ const CONFIG = {
   document.querySelectorAll('[data-date]').forEach(e=>e.textContent=CONFIG.dateText);
   document.querySelectorAll('[data-time]').forEach(e=>e.textContent=CONFIG.timeText);
   document.querySelectorAll('[data-venue]').forEach(e=>e.textContent=CONFIG.venue);
+  document.querySelectorAll('[data-venue-lines]').forEach(e=>{
+    e.innerHTML = CONFIG.venueName + "<br>" + CONFIG.venueHall + " · " + CONFIG.timeText;
+  });
   const where=document.querySelector('[data-where]');
-  if(where) where.textContent = CONFIG.venue + " · " + CONFIG.timeText;
+  if(where) where.innerHTML = CONFIG.venueName + " · " + CONFIG.venueHall + "<br>" + CONFIG.timeText;
   const map=document.querySelector('[data-map]');
   if(map) map.href="https://maps.google.com/?q="+encodeURIComponent(CONFIG.mapQuery);
   const rsvp=document.getElementById('rsvp');
@@ -365,27 +370,25 @@ window.__startAutoScroll=function(){
   requestAnimationFrame(step);
 };
 
-/* ---------- DAVETİYE ZARFI: tıkla, siteyi aç ---------- */
+/* ---------- DAVETİYE KARTI: mühre dokun, siteyi aç ---------- */
 (function(){
   const intro=document.getElementById('intro');
-  const env=document.getElementById('envelope');
+  const btn=document.getElementById('openBtn');
   const v=document.getElementById('herovid');
-  if(!intro||!env)return;
+  if(!intro||!btn)return;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   function openSite(){
-    if(env.classList.contains('open'))return;
-    env.classList.add('open');               // mektup açılış animasyonu
+    if(intro.classList.contains('opening'))return;
+    intro.classList.add('opening');          // mühür ve kart sırayla söner
     if(v){try{v.play();}catch(e){}}
-    const wait=reduce?200:1700;              // animasyon bitsin
-    setTimeout(()=>{
+    setTimeout(()=>{                          // perde kalkar
       intro.classList.add('gone');
       document.body.classList.remove('locked');
       window.scrollTo(0,0);
-      setTimeout(()=>window.__startAutoScroll(),1100);
-    },wait);
+      setTimeout(()=>window.__startAutoScroll(),1000);
+    }, reduce?150:900);
   }
-  env.addEventListener('click',openSite);
-  env.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openSite();}});
+  btn.addEventListener('click',openSite);
 })();
 </script>
 </body>
