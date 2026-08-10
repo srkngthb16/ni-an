@@ -147,7 +147,7 @@ body.locked{overflow:hidden}
 .intro-venue{font-size:12.5px;letter-spacing:.03em;color:var(--muted);margin-top:6px;line-height:1.6}
 
 /* mühürlü açma düğmesi */
-.seal-btn{position:relative;margin-top:38px;background:none;border:0;padding:0;cursor:pointer;
+.seal-btn{position:relative;margin:38px auto 0;background:none;border:0;padding:0;cursor:pointer;
   display:flex;flex-direction:column;align-items:center;gap:14px;
   font:inherit;-webkit-tap-highlight-color:transparent}
 .seal{width:78px;height:78px;border-radius:50%;
@@ -159,9 +159,12 @@ body.locked{overflow:hidden}
   transition:transform .45s cubic-bezier(.22,1,.36,1), opacity .45s ease}
 .seal span{font-style:italic;font-size:17px;margin:0 2px;opacity:.9}
 /* nabız halkası */
-.seal-btn::before{content:"";position:absolute;top:0;width:78px;height:78px;border-radius:50%;
+.seal-btn::before{content:"";position:absolute;top:0;left:50%;width:78px;height:78px;border-radius:50%;
   border:1px solid oklch(0.6 0.1 28/.5);animation:ring 2.6s ease-out infinite;pointer-events:none}
-@keyframes ring{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.5);opacity:0}100%{opacity:0}}
+@keyframes ring{
+  0%{transform:translateX(-50%) scale(1);opacity:.7}
+  70%{transform:translateX(-50%) scale(1.5);opacity:0}
+  100%{transform:translateX(-50%) scale(1.5);opacity:0}}
 .seal-btn:active .seal{transform:scale(.94)}
 .seal-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--muted);transition:opacity .4s ease}
