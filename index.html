@@ -262,7 +262,7 @@ body.locked{overflow:hidden}
   <div class="card reveal">
     <h3>Mekân</h3>
     <p data-venue>Lidya Park Davet Evi · Aspendos Salonu, Kat 2</p>
-    <p style="margin-top:8px"><a data-map href="https://maps.google.com/?q=İstanbul" target="_blank" rel="noopener">Haritada aç ↗</a></p>
+    <p style="margin-top:8px"><a data-map href="https://maps.app.goo.gl/vbR2hk33aiGUBj7q9" target="_blank" rel="noopener">Haritada aç ↗</a></p>
   </div>
 </section>
 
@@ -291,6 +291,7 @@ const CONFIG = {
   venue:     "Lidya Park Davet Evi · Aspendos Salonu, Kat 2",
   venueName: "Lidya Park Davet Evi",
   venueHall: "Aspendos Salonu · Kat 2",
+  mapUrl:    "https://maps.app.goo.gl/vbR2hk33aiGUBj7q9",  // harita linki (boş bırakılırsa mapQuery kullanılır)
   mapQuery:  "Lidya Park Davet Evi",
   whatsapp:  "900000000000",                 // ülke kodu+numara, boşluksuz  (ör. 905551112233)
   scrollSeconds: 33                          // sitenin baştan sona otomatik kayış süresi (30-35)
@@ -308,7 +309,9 @@ const CONFIG = {
   const where=document.querySelector('[data-where]');
   if(where) where.innerHTML = CONFIG.venueName + " · " + CONFIG.venueHall + "<br>" + CONFIG.timeText;
   const map=document.querySelector('[data-map]');
-  if(map) map.href="https://maps.google.com/?q="+encodeURIComponent(CONFIG.mapQuery);
+  if(map) map.href = CONFIG.mapUrl
+    ? CONFIG.mapUrl
+    : "https://maps.google.com/?q="+encodeURIComponent(CONFIG.mapQuery);
   const rsvp=document.getElementById('rsvp');
   if(rsvp) rsvp.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent("Nişanınıza katılıyorum 🎉");
 })();
