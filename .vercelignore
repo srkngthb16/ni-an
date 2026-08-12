@@ -1,4 +1,6 @@
+.git
 .DS_Store
+README.md
 _shot.html
 _probe.html
 _mid.html
@@ -7,4 +9,4 @@ screenshots/
 assets/foto1.jpg
 assets/foto2.jpg
 assets/foto3.jpg
-.vercel
+assets/hero.mov

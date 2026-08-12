@@ -184,34 +184,28 @@ body.locked{overflow:hidden}
   .io,.intro-rule,.intro-frame{animation:none;opacity:1;transform:none;width:74px}
   .seal-btn::before{animation:none;opacity:0}
 }
+.hero{min-height:100vh}
+body{overflow:hidden}
+@page{size:A4 portrait;margin:0}
+
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hero .inner{text-shadow:none}
+  .hero .veil{background:linear-gradient(180deg,
+      oklch(0.20 0.03 55/.42),
+      oklch(0.17 0.03 55/.34) 40%,
+      oklch(0.14 0.025 55/.62))}
+}
 </style>
 </head>
-<body class="locked">
-<div id="prog"></div>
+<body>
 
-<!-- ============ YÜKLEME / DAVETİYE KARTI ============ -->
-<div id="intro">
-  <div class="intro-frame"></div>
-  <div class="card-open">
-    <div class="intro-eyebrow io io-1">Nişan Davetiyesi</div>
-    <div class="intro-names io io-2">Serkan<span class="intro-amp">&amp;</span>Melek</div>
-    <div class="intro-rule"></div>
-    <div class="intro-date io io-3" data-date>—</div>
-    <div class="intro-venue io io-4" data-venue-lines>—</div>
-    <button class="seal-btn io io-5" id="openBtn" aria-label="Davetiyeyi aç">
-      <span class="seal">S<span>&amp;</span>M</span>
-      <span class="seal-label">Açmak için dokunun</span>
-    </button>
-  </div>
-</div>
+
 
 <!-- ============ HERO ============ -->
 <header class="hero">
   <!-- Video: assets/hero.mp4 / hero.mov -->
-  <video id="herovid" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
-    <source src="assets/hero.mp4" type="video/mp4">
-    <source src="assets/hero.mov" type="video/quicktime">
-  </video>
+  <img class="heroimg" src="assets/hero-poster.jpg" alt="">
   <div class="veil"></div>
 
   <div class="inner">
@@ -234,54 +228,9 @@ body.locked{overflow:hidden}
     </div>
   </div>
 
-  <div class="scrolldown"><span>KAYDIR</span><span class="arrow">↓</span></div>
-</header>
+  </header>
 
-<!-- ============ GERİ SAYIM ============ -->
-<div class="countdown reveal">
-  <div class="cd"><b id="cd-d">—</b><span>Gün</span></div>
-  <div class="cd"><b id="cd-h">—</b><span>Saat</span></div>
-  <div class="cd"><b id="cd-m">—</b><span>Dakika</span></div>
-  <div class="cd"><b id="cd-s">—</b><span>Saniye</span></div>
-</div>
 
-<!-- ============ HİKAYE ============ -->
-<section class="story wrap reveal">
-  <div class="eyebrow" style="color:var(--gold-deep)">Hikâyemiz</div>
-  <p class="quote">"Bir hikâyenin en güzel yerinde, sizi de yanımızda istiyoruz."</p>
-</section>
-
-<!-- ============ DETAYLAR ============ -->
-<section class="details wrap">
-  <div class="card reveal">
-    <h3>Tarih</h3>
-    <p data-date>27 Eylül 2026 · Pazar</p>
-  </div>
-  <div class="card reveal">
-    <h3>Saat</h3>
-    <p data-time>19.00 - yemek servisimiz başlayacaktır</p>
-  </div>
-  <div class="card reveal">
-    <h3>Mekân</h3>
-    <p data-venue>Lidya Park Davet Evi · Aspendos Salonu, Kat 2</p>
-    <p class="addr" data-address>Büyükdere, Karadağ Sk. No:37 Z02, 26950 Odunpazarı/Eskişehir</p>
-    <p style="margin-top:10px"><a data-map href="https://maps.app.goo.gl/vbR2hk33aiGUBj7q9" target="_blank" rel="noopener">Haritada aç ↗</a></p>
-  </div>
-</section>
-
-<!-- ============ ROMANTİK ARA SÖZ ============ -->
-<section class="wrap reveal" style="text-align:center;padding:52px 34px 44px">
-  <div class="eyebrow" style="color:var(--gold-deep)">İkimiz</div>
-  <p style="font-family:var(--serif);font-style:italic;font-size:clamp(24px,6.5vw,28px);line-height:1.5;color:var(--ink);margin:14px 0 0">İki kalp, bir yol —<br>ve bu yolun sonu hep birlikte.</p>
-</section>
-
-<!-- ============ RSVP ============ -->
-<footer class="rsvp">
-  <div class="k">Katılımınızı bekliyoruz</div>
-  <div class="sub">Lütfen 13 Eylül'e kadar bize bildirin.</div>
-  <a class="btn" id="rsvp" href="https://wa.me/900000000000?text=Nişanınıza%20katılıyorum" target="_blank" rel="noopener">Katılım Bildir</a>
-  <div class="sig">SERKAN &amp; MELEK · 2026</div>
-</footer>
 
 <script>
 /* ============================================================
