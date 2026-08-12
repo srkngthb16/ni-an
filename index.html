@@ -169,13 +169,10 @@ body.locked{overflow:hidden}
   70%{transform:translateX(-50%) scale(1.5);opacity:0}
   100%{transform:translateX(-50%) scale(1.5);opacity:0}}
 .seal-btn:active .seal{transform:scale(.94)}
-.seal-label{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--muted);transition:opacity .4s ease}
 
 /* ---- AÇILIŞ: sırayla sön, sonra perde kalkar ---- */
 #intro.opening .seal{transform:scale(1.35);opacity:0}
 #intro.opening .seal-btn::before{animation:none;opacity:0}
-#intro.opening .seal-label{opacity:0}
 #intro.opening .card-open{opacity:0;transform:translateY(-16px) scale(.97);
   transition:opacity .7s ease .25s, transform .7s cubic-bezier(.4,0,.2,1) .25s}
 #intro.opening .intro-frame{opacity:0;transition:opacity .6s ease .3s;animation:none}
@@ -200,7 +197,6 @@ body.locked{overflow:hidden}
     <div class="intro-venue io io-4" data-venue-lines>—</div>
     <button class="seal-btn io io-5" id="openBtn" aria-label="Davetiyeyi aç">
       <span class="seal">S<span>&amp;</span>M</span>
-      <span class="seal-label">Açmak için dokunun</span>
     </button>
   </div>
 </div>
@@ -210,7 +206,6 @@ body.locked{overflow:hidden}
   <!-- Video: assets/hero.mp4 / hero.mov -->
   <video id="herovid" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
     <source src="assets/hero.mp4" type="video/mp4">
-    <source src="assets/hero.mov" type="video/quicktime">
   </video>
   <div class="veil"></div>
 
@@ -322,16 +317,33 @@ const CONFIG = {
   if(rsvp) rsvp.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent("Nişanınıza katılıyorum 🎉");
 })();
 
-/* ---------- HERO VIDEO: oynatmayı zorla ---------- */
+/* ---------- HERO VIDEO: oynatmayı zorla (mobil dahil) ---------- */
 (function(){
   const v=document.getElementById('herovid');
   if(!v)return;
-  v.muted=true;v.playsInline=true;
-  const go=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{});};
+  // iOS Safari şartları: muted + playsinline, öznitelik olarak da dursun
+  v.muted=true; v.defaultMuted=true; v.playsInline=true;
+  v.setAttribute('muted','');
+  v.setAttribute('playsinline','');
+  v.setAttribute('webkit-playsinline','');
+
+  let ok=false;
+  function go(){
+    if(ok)return;
+    const p=v.play();
+    if(p&&p.then) p.then(()=>{ok=true;}).catch(()=>{});
+  }
+  v.addEventListener('playing',()=>{ok=true;});
+
   go();
-  v.addEventListener('loadeddata',go);
-  // bazı mobil tarayıcı ilk dokunuşta oynatır
-  ['touchstart','click'].forEach(e=>document.addEventListener(e,go,{once:true,passive:true}));
+  // hazır olduğu her aşamada tekrar dene
+  ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(e=>v.addEventListener(e,go));
+  // sekmeye dönünce (iOS arka plana alınca durdurur)
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)go();});
+  window.addEventListener('pageshow',go);
+  // kullanıcı etkileşimi: düşük güç modunda tek çıkış yolu, o yüzden once değil
+  ['touchstart','touchend','click','scroll'].forEach(e=>
+    document.addEventListener(e,go,{passive:true}));
 })();
 
 /* ---------- GERİ SAYIM ---------- */
