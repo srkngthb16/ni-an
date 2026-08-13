@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    1a PALET — Krem · Altın · Warm  (Cormorant Garamond + Inter)
@@ -58,21 +58,30 @@ img,video{max-width:100%;display:block}
       oklch(0.20 0.03 55/.55),
       oklch(0.18 0.03 55/.30) 40%,
       oklch(0.15 0.025 55/.82))}
-.hero .inner{position:relative;z-index:2;text-shadow:0 1px 18px oklch(0.12 0.02 55/.6)}
+.hero .inner{position:relative;z-index:2;
+  text-shadow:0 1px 3px oklch(0.12 0.02 55/.55), 0 2px 20px oklch(0.12 0.02 55/.65)}
 .hero .names{font-family:var(--serif);font-weight:500;font-size:clamp(58px,17.6vw,90px);
   line-height:.92;color:oklch(0.98 0.012 82)}
 .hero .amp{font-family:var(--serif);font-style:italic;font-size:clamp(32px,9.6vw,46px);color:oklch(0.83 0.09 72);margin:2px 0}
-.hero .rule{width:56px;height:1px;background:oklch(0.8 0.08 72);margin:22px auto}
-.hero .when{font-family:var(--serif);font-style:italic;font-size:clamp(20px,5.6vw,24px);color:oklch(0.94 0.02 78)}
-.hero .where{font-size:15px;letter-spacing:.05em;color:oklch(0.86 0.02 74);margin-top:6px}
-.hero-note{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5;
-  color:oklch(0.88 0.045 74);margin:16px auto 0;max-width:270px}
-.families{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:26px}
-.fam{max-width:180px}
-.fam .par{font-family:var(--serif);font-size:20px;letter-spacing:.01em;
-  color:oklch(0.9 0.03 74);line-height:1.35}
+.hero .rule{width:64px;height:2px;background:oklch(0.82 0.08 72);margin:22px auto}
+.hero .when{font-family:var(--serif);font-weight:600;font-style:italic;
+  font-size:clamp(27px,7.2vw,33px);color:oklch(0.97 0.02 80);line-height:1.25}
+.hero .where{font-weight:600;font-size:clamp(19px,5vw,22px);letter-spacing:.01em;
+  color:oklch(0.95 0.02 76);margin-top:10px;line-height:1.5}
+.hero-note{font-family:var(--serif);font-weight:600;font-style:italic;
+  font-size:clamp(21px,5.4vw,24px);line-height:1.45;
+  color:oklch(0.95 0.04 76);margin:20px auto 0;max-width:330px}
+/* aile isimleri alt alta — her biri tek satır, yaşlılar için kolay okunur */
+.families{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:30px}
+.fam{max-width:none}
+@media (min-width:560px){
+  .families{flex-direction:row;justify-content:center;gap:40px}
+}
+.fam .par{font-family:var(--serif);font-weight:600;font-size:clamp(23px,5.8vw,26px);
+  letter-spacing:.01em;color:oklch(0.96 0.03 76);line-height:1.3}
 .scrolldown{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:2;
-  font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:oklch(0.86 0.07 72);text-shadow:0 1px 10px oklch(0.12 0.02 55/.6);
+  font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.2em;
+  color:oklch(0.9 0.07 72);text-shadow:0 1px 10px oklch(0.12 0.02 55/.7);
   display:flex;flex-direction:column;align-items:center;gap:6px}
 .scrolldown .arrow{animation:bob 1.8s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
@@ -169,13 +178,10 @@ body.locked{overflow:hidden}
   70%{transform:translateX(-50%) scale(1.5);opacity:0}
   100%{transform:translateX(-50%) scale(1.5);opacity:0}}
 .seal-btn:active .seal{transform:scale(.94)}
-.seal-label{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--muted);transition:opacity .4s ease}
 
 /* ---- AÇILIŞ: sırayla sön, sonra perde kalkar ---- */
 #intro.opening .seal{transform:scale(1.35);opacity:0}
 #intro.opening .seal-btn::before{animation:none;opacity:0}
-#intro.opening .seal-label{opacity:0}
 #intro.opening .card-open{opacity:0;transform:translateY(-16px) scale(.97);
   transition:opacity .7s ease .25s, transform .7s cubic-bezier(.4,0,.2,1) .25s}
 #intro.opening .intro-frame{opacity:0;transition:opacity .6s ease .3s;animation:none}
@@ -186,16 +192,7 @@ body.locked{overflow:hidden}
 }
 .hero{min-height:100vh}
 body{overflow:hidden}
-@page{size:A4 portrait;margin:0}
-
-@media print{
-  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .hero .inner{text-shadow:none}
-  .hero .veil{background:linear-gradient(180deg,
-      oklch(0.20 0.03 55/.42),
-      oklch(0.17 0.03 55/.34) 40%,
-      oklch(0.14 0.025 55/.62))}
-}
+@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero .inner{text-shadow:none}.hero .veil{background:linear-gradient(180deg,oklch(0.20 0.03 55/.42),oklch(0.17 0.03 55/.34) 40%,oklch(0.14 0.025 55/.62))}}
 </style>
 </head>
 <body>
@@ -204,7 +201,7 @@ body{overflow:hidden}
 
 <!-- ============ HERO ============ -->
 <header class="hero">
-  <!-- Video: assets/hero.mp4 / hero.mov -->
+  <!-- Video: assets/hero.mp4 (720x1280, ~1.8 Mbps, faststart) -->
   <img class="heroimg" src="assets/hero-poster.jpg" alt="">
   <div class="veil"></div>
 
@@ -215,7 +212,7 @@ body{overflow:hidden}
     <div class="names">Melek</div>
     <div class="rule"></div>
     <div class="when" data-when>27 Eylül 2026 · Pazar</div>
-    <div class="where" data-where>Lidya Park Davet Evi · Aspendos Salonu, Kat 2<br>19.00</div>
+    <div class="where" data-where>Lidya Park Davet Evi<br>Aspendos Salonu · Kat 2<br>19.00</div>
     <div class="hero-note">Nişan törenimiz davetlilerimiz için yemekli yapılacaktır</div>
 
     <div class="families">
@@ -262,7 +259,7 @@ const CONFIG = {
     e.innerHTML = CONFIG.venueName + "<br>" + CONFIG.venueHall + " · " + CONFIG.timeText;
   });
   const where=document.querySelector('[data-where]');
-  if(where) where.innerHTML = CONFIG.venueName + " · " + CONFIG.venueHall + "<br>" + CONFIG.timeText;
+  if(where) where.innerHTML = CONFIG.venueName + "<br>" + CONFIG.venueHall + "<br>" + CONFIG.timeText;
   const map=document.querySelector('[data-map]');
   if(map) map.href = CONFIG.mapUrl
     ? CONFIG.mapUrl
@@ -271,16 +268,33 @@ const CONFIG = {
   if(rsvp) rsvp.href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent("Nişanınıza katılıyorum 🎉");
 })();
 
-/* ---------- HERO VIDEO: oynatmayı zorla ---------- */
+/* ---------- HERO VIDEO: oynatmayı zorla (mobil dahil) ---------- */
 (function(){
   const v=document.getElementById('herovid');
   if(!v)return;
-  v.muted=true;v.playsInline=true;
-  const go=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{});};
+  // iOS Safari şartları: muted + playsinline, öznitelik olarak da dursun
+  v.muted=true; v.defaultMuted=true; v.playsInline=true;
+  v.setAttribute('muted','');
+  v.setAttribute('playsinline','');
+  v.setAttribute('webkit-playsinline','');
+
+  let ok=false;
+  function go(){
+    if(ok)return;
+    const p=v.play();
+    if(p&&p.then) p.then(()=>{ok=true;}).catch(()=>{});
+  }
+  v.addEventListener('playing',()=>{ok=true;});
+
   go();
-  v.addEventListener('loadeddata',go);
-  // bazı mobil tarayıcı ilk dokunuşta oynatır
-  ['touchstart','click'].forEach(e=>document.addEventListener(e,go,{once:true,passive:true}));
+  // hazır olduğu her aşamada tekrar dene
+  ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(e=>v.addEventListener(e,go));
+  // sekmeye dönünce (iOS arka plana alınca durdurur)
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)go();});
+  window.addEventListener('pageshow',go);
+  // kullanıcı etkileşimi: düşük güç modunda tek çıkış yolu, o yüzden once değil
+  ['touchstart','touchend','click','scroll'].forEach(e=>
+    document.addEventListener(e,go,{passive:true}));
 })();
 
 /* ---------- GERİ SAYIM ---------- */
